@@ -1,0 +1,102 @@
+:root {
+    --pink: #DB7093;
+    --background: #FFC0CB;
+    --gradient-1: #FFB6C1;
+    --gradient-2: #FFF0F5;
+  }
+  
+  html {
+    font-size: 12px;
+    font-weight: 300;
+  }
+  
+  body {
+    width: 90vw;
+    margin: 0 auto;
+    background: radial-gradient(var(--gradient-1), var(--gradient-2));
+    padding: 4rem;
+  }
+  
+  main {
+    text-align: center;
+    background: var(--background);
+    border: solid var(--pink);
+    border-width: 8px 8px 8px 8px;
+    min-height: 40vh;
+    border-radius: 2rem 2rem 2rem 2rem;
+    padding: 4rem;
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  h2 {
+    font-size: 3.2rem;
+    margin: 2rem 2rem 2rem 2rem;
+  }
+  
+  p {
+    font-size: 1.8rem;
+  }
+
+  .button-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  button {
+    border: none;
+    cursor: pointer;
+    background: var(--pink);
+    padding: 2rem 6rem;
+    border-radius: 1rem 1rem 0 0;
+    font-size: 1.4rem;
+  }
+  
+  button:last-child {
+    background: var(--pink);
+    border-radius: 0 0 1rem 1rem;
+  }
+
+  /* game screen */
+  
+  h3 {
+    font-size: 2rem;
+  }
+  
+  input {
+    border: 2px solid #DB7093;
+    background: transparent;
+    margin: 2rem 0;
+    padding: 1rem 0;
+    width: 25rem;
+    text-align: center;
+    font-size: 2rem;
+    color: white
+  }
+
+  .stats {
+    text-align: left;
+  }
+  
+  .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .info span {
+    font-size: 1.6rem;
+  }
+
+  #newGameButton {
+    border-radius: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+  }
+  
+  @media (min-width: 800px) {
+    body {
+      width: 60vw;
+    }
+  }
