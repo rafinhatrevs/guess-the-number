@@ -1,52 +1,47 @@
-
-let computerNumber
-let userNumbers = [] //armazena os numeros das tentativas na aplicaçao
-let attempts = 0 //numero de tentativas que inicia com 0
-let maxGuesses = 10 //numero maximo de tentativas
+let computer_number; // numero gerado pelo computador
+let user_numbers = []; // array para armazenar os numeros digitados pelo usuario
+let attempts = 0; // numero de tentativas
+let max_guesses = 10; // numero maximo de tentativas
 
 function newGame() {
-    window.location.reload()
+    window.location.reload();
 }
 
 function init() {
-   computerNumber = Math.floor(Math.random() * 100 + 1) //gera numero randomico e arrendonda com math.floor
-//   console.log(computerNumber)
+    computer_number = Math.floor(Math.random() * 100 + 1); // gera numero randomico e arrendonda com math.floor
 }
 
 function compareNumbers() {
-    const userNumber = Number(document.getElementById('inputBox').value) //pega o valor que está em inputBox (numero digitado pelo usuario)
+    const user_number = Number(document.getElementById('input-box').value); // recebe o numero digitado pelo usuario
 
-    if (userNumber < 1 || userNumber > 100) {
-        document.getElementById('textOutput').innerHTML = 'Enter a valid number between 1 and 100'
-        document.getElementById('inputBox').value = '' //zera o campo de digitaçao
-        return
+    if (user_number < 1 || user_number > 100) {
+        document.getElementById('text-output').innerHTML = 'Enter a valid number between 1 and 100';
+        document.getElementById('input-box').value = ''; // zera o campo de digitaçao
+        return;
     }
-    
-    userNumbers.push(" " + userNumber) //armazena o numero na array
-    document.getElementById('guesses').innerHTML = userNumbers //retorna array no guesses
 
-        if (attempts < maxGuesses) {
-            if (userNumber > computerNumber) {
-                document.getElementById('textOutput').innerHTML = 'Your number is too high'
-                document.getElementById('inputBox').value = '' //zera o campo de digitaçao
-                attempts++ //adiciona 1 ao numero de tentativas
-                document.getElementById('attempts').innerHTML = attempts
-            }
-            else if (userNumber < computerNumber) {
-                document.getElementById('textOutput').innerHTML = 'Your number is too low'
-                document.getElementById('inputBox').value = '' //zera o campo de digitaçao
-                attempts++ //adiciona 1 ao numero de tentativas
-                document.getElementById('attempts').innerHTML = attempts
-            }
-            else {
-                document.getElementById('textOutput').innerHTML = 'Congratulations!!!'
-                attempts++ //adiciona 1 ao numero de tentativas
-                document.getElementById('attempts').innerHTML = attempts
-                document.getElementById('inputBox').setAttribute('Readonly', 'Readonly') //para a aplicaçao
-            }
-        } 
-        else {
-            document.getElementById('textOutput').innerHTML = 'You lose!!! The computer number was: ' + computerNumber
-            document.getElementById('inputBox').setAttribute('Readonly', 'Readonly') //para a aplicaçao
-        } 
+    user_numbers.push(' ' + user_number); // armazena o numero no array
+    document.getElementById('guesses').innerHTML = user_numbers; // retorna array nos palpites
+
+    if (attempts < max_guesses) {
+        if (user_number > computer_number) {
+            document.getElementById('text-output').innerHTML = 'Your number is too high';
+            document.getElementById('input-box').value = ''; // zera o campo de digitaçao
+            attempts++; // adiciona 1 ao numero de tentativas
+            document.getElementById('attempts').innerHTML = attempts;
+        } else if (user_number < computer_number) {
+            document.getElementById('text-output').innerHTML = 'Your number is too low';
+            document.getElementById('input-box').value = ''; // zera o campo de digitaçao
+            attempts++; // adiciona 1 ao numero de tentativas
+            document.getElementById('attempts').innerHTML = attempts;
+        } else {
+            document.getElementById('text-output').innerHTML = 'Congratulations!!!';
+            attempts++; // adiciona 1 ao numero de tentativas
+            document.getElementById('attempts').innerHTML = attempts;
+            document.getElementById('input-box').setAttribute('Readonly', 'Readonly'); // para a aplicaçao
+        }
+    } else {
+        document.getElementById('text-output').innerHTML = 'You lose!!! The computer number was: ' + computer_number;
+        document.getElementById('input-box').setAttribute('Readonly', 'Readonly'); // para a aplicaçao
+    }
 }
