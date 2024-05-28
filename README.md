@@ -1,1 +1,1 @@
-Atividade - Guess the Number
+Activity - Guess the Number
